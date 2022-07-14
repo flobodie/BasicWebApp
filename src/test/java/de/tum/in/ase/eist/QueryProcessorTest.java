@@ -30,4 +30,10 @@ class QueryProcessorTest {
 		}
 	}
 
+	@Test
+	void testLargest() {
+		String test = "which of the following numbers is the largest: 1";
+		assertEquals("1", queryProcessor.process(test));
+	}
+
 }

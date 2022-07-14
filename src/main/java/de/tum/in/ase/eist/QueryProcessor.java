@@ -16,13 +16,19 @@ public class QueryProcessor {
         } else if (query.contains("name")) {
            return "Flo";
         } else if (query.contains("largest")) { // TODO extend the programm here
-            query = query.substring(query.indexOf(":"));
-            String[] stringarr = query.split(",");
+            //query = query.substring(query.indexOf(":" + 1));
+            String[] stringarr = query.split(" ");
             int[] arr = new int[stringarr.length];
-            for(int i = 0; i < stringarr.length; i++) {
-                arr[i] = Integer.parseInt(stringarr[i]);
+            for(int i = 8; i < stringarr.length; i++) {
+                arr[i] = Integer.parseInt(stringarr[i].replace(",",""));
             }
-            return Arrays.stream(arr).max().toString();
+            int ret = arr[8];
+            for (int i = 9; i < stringarr.length; i++) {
+                if (arr[i] > ret) {
+                    ret = arr[i];
+                }
+            }
+            return "" + ret;
         } else {
             return "";
         }
