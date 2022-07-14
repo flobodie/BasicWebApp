@@ -28,7 +28,7 @@ public class QueryProcessor {
                     ret = arr[i];
                 }
             }
-            return "" + ret;
+            return String.valueOf(ret);
         } else {
             return "";
         }
